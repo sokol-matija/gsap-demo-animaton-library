@@ -1,0 +1,110 @@
+/* Banjo Hand Animation Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    color: #3d2314;
+}
+
+p {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.animation-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 0 auto 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#hand-banjo {
+    display: block;
+    margin: 0 auto;
+}
+
+.controls {
+    margin-top: 1rem;
+}
+
+button {
+    background-color: #8b5a2b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #6d4522;
+}
+
+/* Animation specific styles */
+#hand path {
+    transition: fill 0.3s;
+}
+
+#hand path:hover {
+    fill: #f0c0a0;
+}
+
+.string {
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+}
+
+/* Plucked string effect */
+.plucked {
+    animation: glow 0.5s ease-in-out;
+}
+
+@keyframes glow {
+    0%, 100% {
+        stroke: #ddd;
+        stroke-width: 1px;
+    }
+    50% {
+        stroke: #fff;
+        stroke-width: 2px;
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .animation-container {
+        width: 250px;
+        height: 350px;
+    }
+    
+    #hand-banjo {
+        width: 250px;
+        height: 350px;
+    }
+}

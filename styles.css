@@ -1,0 +1,589 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* Layout */
+header {
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+nav {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    flex: 0 0 auto;
+    min-width: 100px;
+    text-align: center;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Demo Sections */
+.demo-section {
+    display: none;
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.demo-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Basic Animations Section */
+.box {
+    width: 100px;
+    height: 100px;
+    background: #4b6cb7;
+    margin: 2rem auto;
+    border-radius: 8px;
+}
+
+/* Timeline Section */
+.timeline-demo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+    margin: 2rem 0;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background: #4b6cb7;
+    border-radius: 50%;
+}
+
+/* Text Animation Section */
+.text-demo {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.split-text {
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.split-text h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4b6cb7;
+}
+
+.split-text p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* SVG Morphing Section */
+.svg-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+#morphSvg {
+    background-color: rgba(75, 108, 183, 0.1);
+    border-radius: 8px;
+}
+
+/* Draggable Section */
+.draggable-container {
+    margin: 2rem 0;
+}
+
+.drag-area {
+    position: relative;
+    height: 300px;
+    background-color: rgba(75, 108, 183, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.draggable-box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: move;
+    user-select: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+}
+
+.draggable-box:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+#dragBox1 {
+    top: 50px;
+    left: 50px;
+}
+
+#dragBox2 {
+    top: 150px;
+    left: 200px;
+}
+
+/* Scroll Section */
+.scroll-container {
+    min-height: 150vh;
+    padding: 2rem 0;
+}
+
+.scroll-box {
+    width: 200px;
+    height: 200px;
+    background: #4b6cb7;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    opacity: 0;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.controls button {
+    background: #4b6cb7;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.controls button:hover {
+    background: #3a5a9a;
+}
+
+/* 3D Flip Cards Section */
+.flip-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.flip-card {
+    width: 150px;
+    height: 200px;
+    perspective: 1000px;
+    margin: 1rem;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: white;
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, #ff6b6b, #c23616);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Motion Path Section */
+.motion-path-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+#pathSvg {
+    background-color: rgba(75, 108, 183, 0.1);
+    border-radius: 8px;
+}
+
+/* Parallax Section */
+.parallax-container {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    background-color: rgba(75, 108, 183, 0.1);
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.parallax-layer {
+    position: absolute;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 8px;
+}
+
+#layer1 {
+    background-color: rgba(75, 108, 183, 0.8);
+    top: 50px;
+    left: 0;
+}
+
+#layer2 {
+    background-color: rgba(255, 107, 107, 0.8);
+    top: 120px;
+    left: 0;
+}
+
+#layer3 {
+    background-color: rgba(76, 209, 55, 0.8);
+    top: 190px;
+    left: 0;
+}
+
+/* Text Scramble Section */
+.scramble-container {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+#scrambleText {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4b6cb7;
+    margin-bottom: 1rem;
+}
+
+#scrambleDesc {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Physics Animation Section */
+.physics-container {
+    position: relative;
+    height: 300px;
+    background-color: rgba(75, 108, 183, 0.1);
+    border-radius: 8px;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.physics-ball {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 0;
+}
+
+#ball1 {
+    background-color: #ff6b6b;
+    left: 100px;
+}
+
+#ball2 {
+    background-color: #4ecdc4;
+    left: 200px;
+}
+
+#ball3 {
+    background-color: #ffbe76;
+    left: 300px;
+}
+
+/* Modern Notification Section */
+.notification-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.notification-trigger {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.notification-trigger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.notification-trigger:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.notification {
+    width: 320px;
+    background: #222;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    pointer-events: auto;
+    border-left: 4px solid #4CAF50;
+}
+
+.notification-content {
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    width: 100%;
+}
+
+.notification-icon {
+    width: 30px;
+    height: 30px;
+    color: #4CAF50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.notification-text {
+    flex-grow: 1;
+}
+
+.notification-content h3 {
+    margin: 0 0 4px 0;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.notification-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.notification-progress {
+    height: 3px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.notification-progress-bar {
+    height: 100%;
+    width: 100%;
+    background-color: #4CAF50;
+    transform-origin: left center;
+    transform: scaleX(0);
+}
+
+/* Error notification styles */
+.notification.error {
+    border-left-color: #F44336;
+}
+
+.notification.error .notification-icon {
+    color: #F44336;
+}
+
+.notification.error .notification-progress-bar {
+    background-color: #F44336;
+}
+
+/* Info notification styles */
+.notification.info {
+    border-left-color: #2196F3;
+}
+
+.notification.info .notification-icon {
+    color: #2196F3;
+}
+
+.notification.info .notification-progress-bar {
+    background-color: #2196F3;
+}
+
+/* Banjo Hand Animation */
+.banjo-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.animation-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 0 auto 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#hand-banjo {
+    display: block;
+    margin: 0 auto;
+}
+
+#hand path {
+    transition: fill 0.3s;
+}
+
+#hand path:hover {
+    fill: #f0c0a0;
+}
+
+.banjo-string {
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+}
+
+/* Plucked string effect */
+.plucked {
+    animation: glow 0.5s ease-in-out;
+}
+
+@keyframes glow {
+    0%, 100% {
+        stroke: #ddd;
+        stroke-width: 1px;
+    }
+    50% {
+        stroke: #fff;
+        stroke-width: 2px;
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .notification {
+        width: 280px;
+    }
+    
+    .animation-container {
+        width: 250px;
+        height: 350px;
+    }
+    
+    #hand-banjo {
+        width: 250px;
+        height: 350px;
+    }
+}

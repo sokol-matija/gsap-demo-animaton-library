@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banjo Hand Animation</title>
+    <link rel="stylesheet" href="./banjo-hand.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Banjo Hand</h1>
+        <p>Hover over the hand to transform it into a banjo, then click to play!</p>
+        
+        <div class="animation-container">
+            <!-- Hand SVG -->
+            <svg id="hand-banjo" viewBox="0 0 300 400" width="300" height="400">
+                <!-- Hand Group -->
+                <g id="hand">
+                    <!-- Palm -->
+                    <path id="palm" d="M120,200 Q160,190 180,210 Q200,230 200,280 Q200,320 160,340 Q120,360 100,340 Q80,320 80,280 Q80,240 120,200" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                    
+                    <!-- Thumb -->
+                    <path id="thumb" d="M80,280 Q60,260 70,230 Q80,200 100,190" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                    
+                    <!-- Index finger -->
+                    <path id="index-finger" d="M120,200 Q110,150 120,100 Q130,80 140,100 Q150,150 140,200" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                    
+                    <!-- Middle finger -->
+                    <path id="middle-finger" d="M140,200 Q140,140 150,90 Q160,70 170,90 Q180,140 160,200" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                    
+                    <!-- Ring finger -->
+                    <path id="ring-finger" d="M160,200 Q170,150 170,110 Q180,90 190,110 Q190,150 180,200" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                    
+                    <!-- Pinky finger -->
+                    <path id="pinky-finger" d="M180,210 Q190,170 190,140 Q200,120 210,140 Q210,170 200,210" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                </g>
+                
+                <!-- Banjo Group (initially hidden) -->
+                <g id="banjo" opacity="0">
+                    <!-- Banjo Body -->
+                    <ellipse id="banjo-body" cx="150" cy="280" rx="80" ry="80" fill="#d4a76a" stroke="#333" stroke-width="2"/>
+                    <ellipse id="banjo-inner" cx="150" cy="280" rx="70" ry="70" fill="#f9e4b7" stroke="#333" stroke-width="1"/>
+                    <ellipse id="banjo-membrane" cx="150" cy="280" rx="65" ry="65" fill="#f9f9f9" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Banjo Neck -->
+                    <rect id="banjo-neck" x="140" y="100" width="20" height="180" fill="#8b5a2b" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                    
+                    <!-- Banjo Head -->
+                    <rect id="banjo-head" x="125" y="80" width="50" height="30" fill="#3d2314" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                    <rect id="banjo-tuners-left" x="125" y="85" width="10" height="20" fill="#222" stroke="#333" stroke-width="1" rx="2" ry="2"/>
+                    <rect id="banjo-tuners-right" x="165" y="85" width="10" height="20" fill="#222" stroke="#333" stroke-width="1" rx="2" ry="2"/>
+                    
+                    <!-- Banjo Strings (initially straight) -->
+                    <line class="string" id="string1" x1="145" y1="90" x2="145" y2="280" stroke="#ddd" stroke-width="1"/>
+                    <line class="string" id="string2" x1="150" y1="90" x2="150" y2="280" stroke="#ddd" stroke-width="1"/>
+                    <line class="string" id="string3" x1="155" y1="90" x2="155" y2="280" stroke="#ddd" stroke-width="1"/>
+                    <line class="string" id="string4" x1="160" y1="90" x2="160" y2="280" stroke="#ddd" stroke-width="1"/>
+                    
+                    <!-- Banjo Bridge -->
+                    <rect id="banjo-bridge" x="140" y="250" width="25" height="5" fill="#f9e4b7" stroke="#333" stroke-width="1" rx="2" ry="2"/>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="controls">
+            <button id="reset-btn">Reset Animation</button>
+        </div>
+    </div>
+
+    <!-- Audio elements for banjo sounds -->
+    <audio id="banjo-sound-1" src="https://assets.mixkit.co/active_storage/sfx/1564/1564-preview.mp3" preload="auto"></audio>
+    <audio id="banjo-sound-2" src="https://assets.mixkit.co/active_storage/sfx/2407/2407-preview.mp3" preload="auto"></audio>
+    <audio id="banjo-sound-3" src="https://assets.mixkit.co/active_storage/sfx/2408/2408-preview.mp3" preload="auto"></audio>
+    <audio id="banjo-sound-4" src="https://assets.mixkit.co/active_storage/sfx/2409/2409-preview.mp3" preload="auto"></audio>
+
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./banjo-hand.js"></script>
+</body>
+</html>

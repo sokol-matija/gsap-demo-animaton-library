@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Playground</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>GSAP Animation Playground</h1>
+        <nav>
+            <button class="nav-btn" data-section="basics">Basics</button>
+            <button class="nav-btn" data-section="timeline">Timeline</button>
+            <button class="nav-btn" data-section="text">Text</button>
+            <button class="nav-btn" data-section="svg">SVG</button>
+            <button class="nav-btn" data-section="draggable">Draggable</button>
+            <button class="nav-btn" data-section="scroll">Scroll</button>
+            <button class="nav-btn" data-section="flip">3D Flip</button>
+            <button class="nav-btn" data-section="motion-path">Motion Path</button>
+            <button class="nav-btn" data-section="parallax">Parallax</button>
+            <button class="nav-btn" data-section="scramble">Text Scramble</button>
+            <button class="nav-btn" data-section="physics">Physics</button>
+            <button class="nav-btn" data-section="notification">GSAP Notification</button>
+            <button class="nav-btn" data-section="toastify">Toastify</button>
+            <button class="nav-btn" data-section="sweetalert">SweetAlert2</button>
+            <button class="nav-btn" data-section="notiflix">Notiflix</button>
+            <button class="nav-btn" data-section="banjo-hand">Banjo Hand</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="basics" class="demo-section active">
+            <h2>Basic Animations</h2>
+            <div class="box"></div>
+            <div class="controls">
+                <button id="fadeIn">Fade In</button>
+                <button id="moveRight">Move Right</button>
+                <button id="rotate">Rotate</button>
+                <button id="reset">Reset</button>
+            </div>
+        </section>
+
+        <section id="timeline" class="demo-section">
+            <h2>Timeline Animations</h2>
+            <div class="timeline-demo">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="controls">
+                <button id="playTimeline">Play Timeline</button>
+                <button id="reverseTimeline">Reverse</button>
+            </div>
+        </section>
+
+        <section id="text" class="demo-section">
+            <h2>Text Animations</h2>
+            <div class="text-demo">
+                <h3 class="split-text">GSAP Text Animation</h3>
+                <p class="split-text">Animate letters, words, and lines with GSAP's text plugins</p>
+            </div>
+            <div class="controls">
+                <button id="animateChars">Animate Characters</button>
+                <button id="animateWords">Animate Words</button>
+                <button id="resetText">Reset</button>
+            </div>
+        </section>
+
+        <section id="svg" class="demo-section">
+            <h2>SVG Morphing</h2>
+            <div class="svg-demo">
+                <svg width="300" height="300" viewBox="0 0 300 300" id="morphSvg">
+                    <path id="morphPath" fill="#4b6cb7" d="M50,50 L250,50 L250,250 L50,250 Z" />
+                </svg>
+            </div>
+            <div class="controls">
+                <button id="morphToCircle">Morph to Circle</button>
+                <button id="morphToStar">Morph to Star</button>
+                <button id="morphToSquare">Morph to Square</button>
+            </div>
+        </section>
+
+        <section id="draggable" class="demo-section">
+            <h2>Draggable Elements</h2>
+            <div class="draggable-container">
+                <div class="drag-area">
+                    <div class="draggable-box" id="dragBox1">Drag Me!</div>
+                    <div class="draggable-box" id="dragBox2">Drag Me Too!</div>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="resetDraggables">Reset Positions</button>
+                <button id="throwEnabled">Enable Throwing</button>
+            </div>
+        </section>
+
+        <section id="scroll" class="demo-section">
+            <h2>Scroll Animations</h2>
+            <div class="scroll-container">
+                <div class="scroll-box">Scroll Down</div>
+                <div class="scroll-box">To See</div>
+                <div class="scroll-box">Animations</div>
+            </div>
+        </section>
+
+        <section id="flip" class="demo-section">
+            <h2>3D Flip Cards</h2>
+            <div class="flip-container">
+                <div class="flip-card" id="card1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">Front 1</div>
+                        <div class="flip-card-back">Back 1</div>
+                    </div>
+                </div>
+                <div class="flip-card" id="card2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">Front 2</div>
+                        <div class="flip-card-back">Back 2</div>
+                    </div>
+                </div>
+                <div class="flip-card" id="card3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">Front 3</div>
+                        <div class="flip-card-back">Back 3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="flipCards">Flip Cards</button>
+                <button id="resetFlip">Reset</button>
+            </div>
+        </section>
+
+        <section id="motion-path" class="demo-section">
+            <h2>Motion Path Animation</h2>
+            <div class="motion-path-container">
+                <svg width="500" height="300" viewBox="0 0 500 300" id="pathSvg">
+                    <path id="motionPath" fill="none" stroke="#ccc" stroke-width="2" d="M50,150 C150,50 350,250 450,150" />
+                    <circle id="pathFollower" r="15" fill="#ff6b6b" cx="50" cy="150" />
+                </svg>
+            </div>
+            <div class="controls">
+                <button id="playPath">Play Path Animation</button>
+                <button id="reversePath">Reverse</button>
+                <button id="resetPath">Reset</button>
+            </div>
+        </section>
+
+        <section id="parallax" class="demo-section">
+            <h2>Parallax Scrolling</h2>
+            <div class="parallax-container">
+                <div class="parallax-layer" id="layer1">Layer 1</div>
+                <div class="parallax-layer" id="layer2">Layer 2</div>
+                <div class="parallax-layer" id="layer3">Layer 3</div>
+            </div>
+            <div class="controls">
+                <button id="simulateParallax">Simulate Scroll</button>
+                <button id="resetParallax">Reset</button>
+            </div>
+        </section>
+
+        <section id="scramble" class="demo-section">
+            <h2>Text Scramble Effect</h2>
+            <div class="scramble-container">
+                <h3 id="scrambleText">GSAP Text Scramble</h3>
+                <p id="scrambleDesc">Watch the text transform with random characters</p>
+            </div>
+            <div class="controls">
+                <button id="startScramble">Scramble Text</button>
+                <button id="resetScramble">Reset</button>
+            </div>
+        </section>
+
+        <section id="physics" class="demo-section">
+            <h2>Physics Animation</h2>
+            <div class="physics-container">
+                <div class="physics-ball" id="ball1"></div>
+                <div class="physics-ball" id="ball2"></div>
+                <div class="physics-ball" id="ball3"></div>
+            </div>
+            <div class="controls">
+                <button id="dropBalls">Drop Balls</button>
+                <button id="throwBalls">Throw Balls</button>
+                <button id="resetBalls">Reset</button>
+            </div>
+        </section>
+
+        <section id="notification" class="demo-section">
+            <h2>GSAP Modern Notification</h2>
+            <div class="notification-demo">
+                <button id="showNotification" class="notification-trigger">Show Notification</button>
+                <!-- Notification container is now created dynamically by the notification.js module -->
+            </div>
+            <div class="controls">
+                <button id="successNotification">Success Notification</button>
+                <button id="errorNotification">Error Notification</button>
+                <button id="infoNotification">Info Notification</button>
+            </div>
+        </section>
+
+        <section id="toastify" class="demo-section">
+            <h2>Toastify Notifications</h2>
+            <div class="notification-demo">
+                <button id="showToastify" class="notification-trigger">Show Toastify</button>
+            </div>
+            <div class="controls">
+                <button id="successToastify">Success Toastify</button>
+                <button id="errorToastify">Error Toastify</button>
+                <button id="infoToastify">Info Toastify</button>
+            </div>
+        </section>
+
+        <section id="sweetalert" class="demo-section">
+            <h2>SweetAlert2 Notifications</h2>
+            <div class="notification-demo">
+                <button id="showSweetAlert" class="notification-trigger">Show SweetAlert</button>
+            </div>
+            <div class="controls">
+                <button id="successSweetAlert">Success SweetAlert</button>
+                <button id="errorSweetAlert">Error SweetAlert</button>
+                <button id="infoSweetAlert">Info SweetAlert</button>
+            </div>
+        </section>
+
+        <section id="notiflix" class="demo-section">
+            <h2>Notiflix Notifications</h2>
+            <div class="notification-demo">
+                <button id="showNotiflix" class="notification-trigger">Show Notiflix</button>
+            </div>
+            <div class="controls">
+                <button id="successNotiflix">Success Notiflix</button>
+                <button id="errorNotiflix">Error Notiflix</button>
+                <button id="infoNotiflix">Info Notiflix</button>
+            </div>
+        </section>
+        
+        <section id="banjo-hand" class="demo-section">
+            <h2>Interactive Banjo Hand Animation</h2>
+            <div class="banjo-container">
+                <p>Hover over the hand to transform it into a banjo, then click the strings to play!</p>
+                
+                <div class="animation-container">
+                    <!-- Hand SVG -->
+                    <svg id="hand-banjo" viewBox="0 0 300 400" width="300" height="400">
+                        <!-- Hand Group -->
+                        <g id="hand">
+                            <!-- Palm -->
+                            <path id="palm" d="M120,200 Q160,190 180,210 Q200,230 200,280 Q200,320 160,340 Q120,360 100,340 Q80,320 80,280 Q80,240 120,200" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- Thumb -->
+                            <path id="thumb" d="M80,280 Q60,260 70,230 Q80,200 100,190" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- Index finger -->
+                            <path id="index-finger" d="M120,200 Q110,150 120,100 Q130,80 140,100 Q150,150 140,200" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- Middle finger -->
+                            <path id="middle-finger" d="M140,200 Q140,140 150,90 Q160,70 170,90 Q180,140 160,200" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- Ring finger -->
+                            <path id="ring-finger" d="M160,200 Q170,150 170,110 Q180,90 190,110 Q190,150 180,200" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- Pinky finger -->
+                            <path id="pinky-finger" d="M180,210 Q190,170 190,140 Q200,120 210,140 Q210,170 200,210" fill="#f5d0b9" stroke="#333" stroke-width="2"/>
+                        </g>
+                        
+                        <!-- Banjo Group (initially hidden) -->
+                        <g id="banjo" opacity="0">
+                            <!-- Banjo Body -->
+                            <ellipse id="banjo-body" cx="150" cy="280" rx="80" ry="80" fill="#d4a76a" stroke="#333" stroke-width="2"/>
+                            <ellipse id="banjo-inner" cx="150" cy="280" rx="70" ry="70" fill="#f9e4b7" stroke="#333" stroke-width="1"/>
+                            <ellipse id="banjo-membrane" cx="150" cy="280" rx="65" ry="65" fill="#f9f9f9" stroke="#333" stroke-width="1"/>
+                            
+                            <!-- Banjo Neck -->
+                            <rect id="banjo-neck" x="140" y="100" width="20" height="180" fill="#8b5a2b" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                            
+                            <!-- Banjo Head -->
+                            <rect id="banjo-head" x="125" y="80" width="50" height="30" fill="#3d2314" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                            <rect id="banjo-tuners-left" x="125" y="85" width="10" height="20" fill="#222" stroke="#333" stroke-width="1" rx="2" ry="2"/>
+                            <rect id="banjo-tuners-right" x="165" y="85" width="10" height="20" fill="#222" stroke="#333" stroke-width="1" rx="2" ry="2"/>
+                            
+                            <!-- Banjo Strings (initially straight) -->
+                            <line class="banjo-string" id="string1" x1="145" y1="90" x2="145" y2="280" stroke="#ddd" stroke-width="1"/>
+                            <line class="banjo-string" id="string2" x1="150" y1="90" x2="150" y2="280" stroke="#ddd" stroke-width="1"/>
+                            <line class="banjo-string" id="string3" x1="155" y1="90" x2="155" y2="280" stroke="#ddd" stroke-width="1"/>
+                            <line class="banjo-string" id="string4" x1="160" y1="90" x2="160" y2="280" stroke="#ddd" stroke-width="1"/>
+                            
+                            <!-- Banjo Bridge -->
+                            <rect id="banjo-bridge" x="140" y="250" width="25" height="5" fill="#f9e4b7" stroke="#333" stroke-width="1" rx="2" ry="2"/>
+                        </g>
+                    </svg>
+                </div>
+                
+                <div class="controls">
+                    <button id="reset-banjo-btn">Reset Animation</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- GSAP Core and Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Check if GSAP loaded correctly
+        console.log('GSAP loaded:', typeof gsap !== 'undefined');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        // Check if ScrollTrigger loaded correctly
+        console.log('ScrollTrigger loaded:', typeof ScrollTrigger !== 'undefined');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <script>
+        // Check if Draggable loaded correctly
+        console.log('Draggable loaded:', typeof Draggable !== 'undefined');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script>
+        // Check if MotionPathPlugin loaded correctly
+        console.log('MotionPathPlugin loaded:', typeof MotionPathPlugin !== 'undefined');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MorphSVGPlugin.min.js"></script>
+    <script>
+        // Check if MorphSVGPlugin loaded correctly
+        console.log('MorphSVGPlugin loaded:', typeof MorphSVGPlugin !== 'undefined');
+    </script>
+    <!-- External Notification Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notiflix@3.2.6/dist/notiflix-aio-3.2.6.min.js"></script>
+    
+    <!-- Notification Modules -->
+    <script type="module">
+        import notificationSystem from './js/notification.js';
+        import { toastify, sweetAlert2Notifications, notiflixNotifications } from './js/external-notifications.js';
+        
+        // Make the notification systems available globally
+        window.notificationSystem = notificationSystem;
+        window.toastify = toastify;
+        window.sweetAlert2Notifications = sweetAlert2Notifications;
+        window.notiflixNotifications = notiflixNotifications;
+    </script>
+    
+    <!-- Main JS -->
+    <script src="./app.js"></script>
+    <script src="./js/banjo-hand.js"></script>
+</body>
+</html>
