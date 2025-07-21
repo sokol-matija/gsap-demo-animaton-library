@@ -69,6 +69,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Animate out current section
             if (currentActiveSection) {
+                // Cleanup section-specific functionality
+                const currentSectionId = currentActiveSection.id;
+                if (currentSectionId === 'liquid-gallery' && window.destroyLiquidGallery) {
+                    window.destroyLiquidGallery();
+                } else if (currentSectionId === 'holographic-terminal' && window.destroyHolographicTerminal) {
+                    window.destroyHolographicTerminal();
+                }
+                
                 gsap.to(currentActiveSection, {
                     opacity: 0,
                     y: -30,
@@ -95,7 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
                                     scale: 1,
                                     filter: "blur(0px)",
                                     duration: 0.5,
-                                    ease: "power2.out"
+                                    ease: "power2.out",
+                                    onComplete: () => {
+                                        // Initialize section-specific functionality
+                                        if (targetSection === 'liquid-gallery' && window.initLiquidGallery) {
+                                            window.initLiquidGallery();
+                                        } else if (targetSection === 'holographic-terminal' && window.initHolographicTerminal) {
+                                            window.initHolographicTerminal();
+                                        }
+                                    }
                                 }
                             );
                         }

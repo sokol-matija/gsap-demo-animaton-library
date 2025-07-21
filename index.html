@@ -27,6 +27,8 @@
             <button class="nav-btn" data-section="notiflix">Notiflix</button>
             <button class="nav-btn" data-section="banjo-hand">Banjo Hand</button>
             <button class="nav-btn" data-section="particle-playground">Particle Playground</button>
+            <button class="nav-btn" data-section="liquid-gallery">Liquid Gallery</button>
+            <button class="nav-btn" data-section="holographic-terminal">Holo Terminal</button>
         </nav>
     </header>
 
@@ -340,6 +342,270 @@
                 <button id="screenshot-particles">Screenshot</button>
             </div>
         </section>
+
+        <section id="liquid-gallery" class="demo-section">
+            <h2>Liquid Morphing Gallery</h2>
+            <div class="liquid-container">
+                <div class="gallery-description">
+                    <p>Experience fluid animations and liquid morphing effects. Click on blobs to transform them and drag to create new ones!</p>
+                </div>
+                
+                <!-- Main Liquid Canvas -->
+                <div class="liquid-canvas" id="liquid-canvas">
+                    <!-- Dynamic liquid blobs will be created here -->
+                    <div class="blob-shape" id="blob1" data-color="primary"></div>
+                    <div class="blob-shape" id="blob2" data-color="secondary"></div>
+                    <div class="blob-shape" id="blob3" data-color="accent"></div>
+                    
+                    <!-- Interactive Gallery Items -->
+                    <div class="gallery-grid">
+                        <div class="gallery-item" data-index="0">
+                            <div class="item-content">
+                                <div class="gradient-orb orb-1"></div>
+                                <h3>Fluid Motion</h3>
+                                <p>Smooth organic animations</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="1">
+                            <div class="item-content">
+                                <div class="gradient-orb orb-2"></div>
+                                <h3>Morphing Shapes</h3>
+                                <p>Dynamic form transitions</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="2">
+                            <div class="item-content">
+                                <div class="gradient-orb orb-3"></div>
+                                <h3>Interactive Design</h3>
+                                <p>Touch-responsive elements</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="3">
+                            <div class="item-content">
+                                <div class="gradient-orb orb-4"></div>
+                                <h3>Liquid Effects</h3>
+                                <p>Flowing visual experiences</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="floating-elements">
+                        <div class="float-particle" data-speed="0.5"></div>
+                        <div class="float-particle" data-speed="0.8"></div>
+                        <div class="float-particle" data-speed="1.2"></div>
+                        <div class="float-particle" data-speed="0.7"></div>
+                        <div class="float-particle" data-speed="1.0"></div>
+                    </div>
+                </div>
+
+                <!-- Interactive Controls -->
+                <div class="liquid-controls">
+                    <div class="control-group">
+                        <label>Blob Speed:</label>
+                        <input type="range" id="blob-speed" min="0.1" max="3" step="0.1" value="1">
+                        <span id="speed-value">1.0</span>
+                    </div>
+                    <div class="control-group">
+                        <label>Viscosity:</label>
+                        <input type="range" id="viscosity" min="0.1" max="2" step="0.1" value="0.8">
+                        <span id="viscosity-value">0.8</span>
+                    </div>
+                    <div class="control-group">
+                        <label>Morph Intensity:</label>
+                        <input type="range" id="morph-intensity" min="0.1" max="2" step="0.1" value="1">
+                        <span id="morph-value">1.0</span>
+                    </div>
+                </div>
+
+                <!-- Mode Selector -->
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="gallery">Gallery Mode</button>
+                    <button class="mode-btn" data-mode="playground">Playground Mode</button>
+                    <button class="mode-btn" data-mode="waves">Wave Mode</button>
+                    <button class="mode-btn" data-mode="vortex">Vortex Mode</button>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="reset-liquid">Reset Scene</button>
+                <button id="add-blob">Add Blob</button>
+                <button id="morph-all">Morph All</button>
+                <button id="liquid-explosion">Explosion!</button>
+            </div>
+        </section>
+
+        <section id="holographic-terminal" class="demo-section">
+            <h2>Holographic Terminal Interface</h2>
+            <div class="terminal-container">
+                <div class="terminal-description">
+                    <p>Experience a futuristic holographic interface with interactive data streams, cyberpunk aesthetics, and advanced terminal commands.</p>
+                </div>
+
+                <!-- Main Holographic Display -->
+                <div class="holo-display" id="holo-display">
+                    <!-- Hologram Projection -->
+                    <div class="hologram-projection">
+                        <!-- 3D Data Cube -->
+                        <div class="data-cube" id="data-cube">
+                            <div class="cube-face front"></div>
+                            <div class="cube-face back"></div>
+                            <div class="cube-face right"></div>
+                            <div class="cube-face left"></div>
+                            <div class="cube-face top"></div>
+                            <div class="cube-face bottom"></div>
+                        </div>
+
+                        <!-- DNA Helix -->
+                        <div class="dna-helix" id="dna-helix">
+                            <div class="helix-strand strand-1"></div>
+                            <div class="helix-strand strand-2"></div>
+                        </div>
+
+                        <!-- Floating Data Points -->
+                        <div class="data-points">
+                            <div class="data-point" data-value="87%"></div>
+                            <div class="data-point" data-value="92%"></div>
+                            <div class="data-point" data-value="76%"></div>
+                            <div class="data-point" data-value="94%"></div>
+                            <div class="data-point" data-value="83%"></div>
+                        </div>
+
+                        <!-- Scan Lines -->
+                        <div class="scan-lines">
+                            <div class="scan-line"></div>
+                            <div class="scan-line"></div>
+                            <div class="scan-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Interface -->
+                    <div class="terminal-interface">
+                        <div class="terminal-header">
+                            <div class="terminal-title">NEXUS_SYSTEM_v4.2.1</div>
+                            <div class="terminal-status">
+                                <span class="status-indicator active"></span>
+                                <span>ONLINE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="terminal-output" id="terminal-output">
+                            <div class="terminal-line">
+                                <span class="prompt">nexus@quantum:~$</span>
+                                <span class="cursor">█</span>
+                            </div>
+                        </div>
+                        
+                        <div class="terminal-input-area">
+                            <span class="prompt">nexus@quantum:~$</span>
+                            <input type="text" class="terminal-input" id="terminal-input" placeholder="Enter command..." autocomplete="off">
+                        </div>
+                    </div>
+
+                    <!-- Data Visualization -->
+                    <div class="data-viz-panel">
+                        <div class="viz-title">SYSTEM METRICS</div>
+                        
+                        <!-- Circular Progress Indicators -->
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="circular-progress" data-percentage="87">
+                                    <div class="progress-circle">
+                                        <div class="progress-fill"></div>
+                                        <div class="progress-value">87%</div>
+                                    </div>
+                                </div>
+                                <div class="metric-label">CPU</div>
+                            </div>
+                            
+                            <div class="metric-item">
+                                <div class="circular-progress" data-percentage="64">
+                                    <div class="progress-circle">
+                                        <div class="progress-fill"></div>
+                                        <div class="progress-value">64%</div>
+                                    </div>
+                                </div>
+                                <div class="metric-label">RAM</div>
+                            </div>
+                            
+                            <div class="metric-item">
+                                <div class="circular-progress" data-percentage="92">
+                                    <div class="progress-circle">
+                                        <div class="progress-fill"></div>
+                                        <div class="progress-value">92%</div>
+                                    </div>
+                                </div>
+                                <div class="metric-label">NET</div>
+                            </div>
+                        </div>
+
+                        <!-- Waveform Display -->
+                        <div class="waveform-display">
+                            <canvas id="waveform-canvas" width="300" height="120"></canvas>
+                        </div>
+
+                        <!-- Matrix Rain -->
+                        <div class="matrix-rain">
+                            <canvas id="matrix-canvas" width="200" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Command Buttons -->
+                <div class="terminal-commands">
+                    <button class="cmd-btn" data-cmd="scan">
+                        <span class="cmd-icon">🔍</span>
+                        <span>SCAN SYSTEM</span>
+                    </button>
+                    <button class="cmd-btn" data-cmd="analyze">
+                        <span class="cmd-icon">📊</span>
+                        <span>ANALYZE DATA</span>
+                    </button>
+                    <button class="cmd-btn" data-cmd="visualize">
+                        <span class="cmd-icon">🌐</span>
+                        <span>VISUALIZE</span>
+                    </button>
+                    <button class="cmd-btn" data-cmd="matrix">
+                        <span class="cmd-icon">🔢</span>
+                        <span>MATRIX MODE</span>
+                    </button>
+                </div>
+
+                <!-- Hologram Controls -->
+                <div class="holo-controls">
+                    <div class="control-group">
+                        <label>Hologram Intensity:</label>
+                        <input type="range" id="holo-intensity" min="0.3" max="1.5" step="0.1" value="1">
+                        <span id="intensity-value">1.0</span>
+                    </div>
+                    <div class="control-group">
+                        <label>Scan Speed:</label>
+                        <input type="range" id="scan-speed" min="0.5" max="3" step="0.1" value="1">
+                        <span id="scan-speed-value">1.0</span>
+                    </div>
+                    <div class="control-group">
+                        <label>Data Rate:</label>
+                        <input type="range" id="data-rate" min="1" max="10" step="1" value="5">
+                        <span id="data-rate-value">5</span>
+                    </div>
+                </div>
+
+                <!-- Projection Modes -->
+                <div class="projection-modes">
+                    <button class="mode-btn active" data-mode="cube">Data Cube</button>
+                    <button class="mode-btn" data-mode="dna">DNA Helix</button>
+                    <button class="mode-btn" data-mode="neural">Neural Net</button>
+                    <button class="mode-btn" data-mode="quantum">Quantum State</button>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="boot-sequence">Boot Sequence</button>
+                <button id="hack-mode">Hack Mode</button>
+                <button id="shutdown-terminal">Shutdown</button>
+                <button id="reset-terminal">Reset System</button>
+            </div>
+        </section>
     </main>
 
     <!-- GSAP Core and Plugins -->
@@ -390,5 +656,7 @@
     <script src="./app.js"></script>
     <script src="./js/banjo-hand.js"></script>
     <script src="./js/particle-playground.js"></script>
+    <script src="./js/liquid-gallery.js"></script>
+    <script src="./js/holographic-terminal.js"></script>
 </body>
 </html>
