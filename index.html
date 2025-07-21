@@ -26,8 +26,7 @@
             <button class="nav-btn" data-section="sweetalert">SweetAlert2</button>
             <button class="nav-btn" data-section="notiflix">Notiflix</button>
             <button class="nav-btn" data-section="banjo-hand">Banjo Hand</button>
-            <button class="nav-btn" data-section="cool-button">Cool Button</button>
-            <button class="nav-btn" data-section="10-more-examples">10 More Examples</button>
+            <button class="nav-btn" data-section="particle-playground">Particle Playground</button>
         </nav>
     </header>
 
@@ -299,157 +298,46 @@
             </div>
         </section>
 
-        <section id="cool-button" class="demo-section">
-            <h2>Cool Button Animation</h2>
-            <div class="scroll-container">
-                <div class="content">
-                    <h1>Scroll Down</h1>
-                    <div class="cool-button-wrapper">
-                        <button class="cool-button">Click Me</button>
+        <section id="particle-playground" class="demo-section">
+            <h2>Interactive Particle Playground</h2>
+            <div class="particle-container">
+                <canvas id="particle-canvas" width="800" height="500"></canvas>
+                <div class="particle-ui">
+                    <div class="particle-stats">
+                        <span id="particle-count">Particles: 0</span>
+                        <span id="fps-counter">FPS: 0</span>
+                    </div>
+                    <div class="particle-controls">
+                        <div class="control-group">
+                            <label for="gravity-slider">Gravity:</label>
+                            <input type="range" id="gravity-slider" min="0" max="2" step="0.1" value="0.3">
+                            <span id="gravity-value">0.3</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="particle-size">Size:</label>
+                            <input type="range" id="particle-size" min="2" max="20" step="1" value="5">
+                            <span id="size-value">5</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="spawn-rate">Spawn Rate:</label>
+                            <input type="range" id="spawn-rate" min="1" max="50" step="1" value="5">
+                            <span id="spawn-value">5</span>
+                        </div>
                     </div>
                 </div>
-                <div class="animation-section">
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
+                <div class="particle-modes">
+                    <button class="mode-btn active" data-mode="fountain">Fountain</button>
+                    <button class="mode-btn" data-mode="fireworks">Fireworks</button>
+                    <button class="mode-btn" data-mode="galaxy">Galaxy</button>
+                    <button class="mode-btn" data-mode="magnetic">Magnetic</button>
+                    <button class="mode-btn" data-mode="rainbow">Rainbow Trail</button>
                 </div>
             </div>
-
-            <div class="presentation-container">
-                <section class="presentation-section slide-in">
-                    <h2>React Native & Expo</h2>
-                    <p>A powerful combination for building cross-platform mobile apps.</p>
-                </section>
-
-                <section class="presentation-section fade-in">
-                    <h3>What is React Native?</h3>
-                    <p>A JavaScript framework for writing real, natively rendering mobile applications for iOS and Android.</p>
-                </section>
-
-                <section class="presentation-section slide-in-left">
-                    <h3>What is Expo?</h3>
-                    <p>A framework and a platform for universal React applications. It is a set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate on iOS, Android, and web apps from the same JavaScript/TypeScript codebase.</p>
-                </section>
-
-                <section class="presentation-section stagger-in">
-                    <h3>Architecture</h3>
-                    <div class="card-container">
-                        <div class="card">JavaScript</div>
-                        <div class="card">The Bridge</div>
-                        <div class="card">Native</div>
-                    </div>
-                </section>
-
-                <section class="presentation-section motion-path-section">
-                    <h3>The Bridge</h3>
-                    <p>The Bridge is a key concept in React Native. It allows communication between the JavaScript and Native threads.</p>
-                    <svg id="bridge-path" width="600" height="400" viewBox="0 0 600 400">
-                        <path d="M50 200 C 150 100, 450 300, 550 200" stroke="#fff" stroke-width="2" fill="none"/>
-                    </svg>
-                    <div class="path-follower">JS</div>
-                </section>
-
-                <section class="presentation-section text-scramble-section">
-                    <h3>Expo Go vs. Dev Builds</h3>
-                    <p id="scramble-text">Expo Go is great for getting started, but development builds offer more flexibility and control over native dependencies.</p>
-                </section>
-
-                <section class="presentation-section eas-section">
-                    <h3>Expo Application Services (EAS)</h3>
-                    <p>EAS is a cloud service that makes it easy to build, deploy, and update your React Native apps.</p>
-                    <div class="eas-logos">
-                        <div class="eas-logo">EAS Build</div>
-                        <div class="eas-logo">EAS Submit</div>
-                        <div class="eas-logo">EAS Update</div>
-                    </div>
-                </section>
-
-                <section class="presentation-section final-slide">
-                    <h2>Ready to build?</h2>
-                    <p>React Native and Expo are a powerful combination for creating amazing mobile apps.</p>
-                </section>
-            </div>
-        </section>
-
-        <section id="10-more-examples" class="demo-section">
-            <h2>10 More Examples</h2>
-
-            <!-- 1. Horizontal Scrolling -->
-            <div id="horizontal-scrolling" class="example-container">
-                <h3>1. Horizontal Scrolling</h3>
-                <div class="horizontal-container">
-                    <div class="horizontal-panel">Panel 1</div>
-                    <div class="horizontal-panel">Panel 2</div>
-                    <div class="horizontal-panel">Panel 3</div>
-                    <div class="horizontal-panel">Panel 4</div>
-                </div>
-            </div>
-
-            <!-- 2. Image Reveal -->
-            <div id="image-reveal" class="example-container">
-                <h3>2. Image Reveal</h3>
-                <div class="image-container">
-                    <img src="https://via.placeholder.com/400x200?text=Image+Reveal" alt="Image Reveal">
-                </div>
-            </div>
-
-            <!-- 3. SVG Line Drawing -->
-            <div id="svg-line-drawing" class="example-container">
-                <h3>3. SVG Line Drawing</h3>
-                <svg id="line-svg" width="300" height="150" viewBox="0 0 300 150">
-                    <path d="M10 80 Q 75 10 150 80 T 290 80" stroke="#4CAF50" stroke-width="3" fill="none"/>
-                </svg>
-            </div>
-
-            <!-- 4. 3D Transforms -->
-            <div id="3d-transforms" class="example-container">
-                <h3>4. 3D Transforms</h3>
-                <div class="box-3d"></div>
-            </div>
-
-            <!-- 5. Color Change -->
-            <div id="color-change" class="example-container">
-                <h3>5. Color Change</h3>
-                <div class="color-box"></div>
-            </div>
-
-            <!-- 6. Pinning and Scrubbing -->
-            <div id="pinning-scrubbing" class="example-container">
-                <h3>6. Pinning and Scrubbing</h3>
-                <div class="pin-container">
-                    <div class="pinned-element"></div>
-                </div>
-            </div>
-
-            <!-- 7. Parallax with Depth -->
-            <div id="parallax-depth" class="example-container">
-                <h3>7. Parallax with Depth</h3>
-                <div class="parallax-depth-container">
-                    <div class="layer-1"></div>
-                    <div class="layer-2"></div>
-                    <div class="layer-3"></div>
-                </div>
-            </div>
-
-            <!-- 8. Staggered Grid -->
-            <div id="staggered-grid" class="example-container">
-                <h3>8. Staggered Grid</h3>
-                <div class="grid-container"></div>
-            </div>
-
-            <!-- 9. Advanced Text Animation -->
-            <div id="split-text-animation" class="example-container">
-                <h3>9. Advanced Text Animation</h3>
-                <h3 class="split-text-adv">Hello GSAP SplitText!</h3>
-            </div>
-
-            <!-- 10. Scroll-based Video Playback -->
-            <div id="video-playback" class="example-container">
-                <h3>10. Scroll-based Video Playback</h3>
-                <video id="scroll-video" width="100%" controls muted>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="controls">
+                <button id="clear-particles">Clear All</button>
+                <button id="pause-particles">Pause</button>
+                <button id="explode-particles">Explode!</button>
+                <button id="screenshot-particles">Screenshot</button>
             </div>
         </section>
     </main>
@@ -501,7 +389,6 @@
     <!-- Main JS -->
     <script src="./app.js"></script>
     <script src="./js/banjo-hand.js"></script>
-    <script src="./10-more-examples.js"></script>
-    <script src="./cool-button.js"></script>
+    <script src="./js/particle-playground.js"></script>
 </body>
 </html>
