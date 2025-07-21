@@ -11,6 +11,41 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
         console.error('Error registering plugins:', error);
     }
+    
+    // Epic loading animation for the entire site
+    gsap.set("body", { overflow: "hidden" });
+    gsap.set(".demo-section", { opacity: 0, y: 50 });
+    gsap.set(".nav-btn", { opacity: 0, y: -20, scale: 0.8 });
+    gsap.set("header h1", { opacity: 0, y: -30 });
+    
+    // Create loading timeline
+    const loadingTimeline = gsap.timeline({
+        onComplete: () => {
+            gsap.set("body", { overflow: "auto" });
+        }
+    });
+    
+    loadingTimeline
+        .to("header h1", {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "elastic.out(1, 0.5)"
+        })
+        .to(".nav-btn", {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "back.out(1.7)"
+        }, 0.3)
+        .to(".demo-section.active", {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out"
+        }, 0.6);
 
     // Navigation
     console.log('Setting up navigation');
@@ -22,23 +57,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navButtons.forEach((button, index) => {
         console.log(`Setting up click for button ${index}:`, button.dataset.section);
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
             console.log(`Button clicked: ${button.dataset.section}`);
             const targetSection = button.dataset.section;
             
-            // Update active button
-            navButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            console.log('Active class added to button');
+            // Create epic navigation transition
+            const currentActiveSection = document.querySelector('.demo-section.active');
             
-            // Show target section
-            sections.forEach(section => {
-                section.classList.remove('active');
-                if (section.id === targetSection) {
-                    section.classList.add('active');
-                    console.log(`Section ${section.id} activated`);
+            // Animate out current section
+            if (currentActiveSection) {
+                gsap.to(currentActiveSection, {
+                    opacity: 0,
+                    y: -30,
+                    scale: 0.95,
+                    duration: 0.3,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        currentActiveSection.classList.remove('active');
+                        
+                        // Animate in new section
+                        const newSection = document.getElementById(targetSection);
+                        if (newSection) {
+                            newSection.classList.add('active');
+                            gsap.fromTo(newSection, 
+                                {
+                                    opacity: 0,
+                                    y: 30,
+                                    scale: 0.95,
+                                    filter: "blur(10px)"
+                                },
+                                {
+                                    opacity: 1,
+                                    y: 0,
+                                    scale: 1,
+                                    filter: "blur(0px)",
+                                    duration: 0.5,
+                                    ease: "power2.out"
+                                }
+                            );
+                        }
+                    }
+                });
+            } else {
+                // If no current section, just show the new one
+                const newSection = document.getElementById(targetSection);
+                if (newSection) {
+                    newSection.classList.add('active');
+                }
+            }
+            
+            // Update active button with animation
+            navButtons.forEach(btn => {
+                gsap.to(btn, {
+                    scale: 1,
+                    duration: 0.2,
+                    ease: "power2.out"
+                });
+                btn.classList.remove('active');
+            });
+            
+            // Animate active button
+            gsap.to(button, {
+                scale: 1.05,
+                duration: 0.3,
+                ease: "elastic.out(1, 0.5)",
+                yoyo: true,
+                repeat: 1,
+                onComplete: () => {
+                    gsap.set(button, { scale: 1 });
                 }
             });
+            
+            button.classList.add('active');
+            console.log('Active class added to button');
+            console.log(`Section ${targetSection} activated`);
         });
     });
 
@@ -51,25 +144,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fadeInBtn.addEventListener('click', () => {
         gsap.to(box, { 
-            opacity: 0.5, 
-            duration: 1,
-            ease: 'power2.inOut'
+            opacity: 0.3, 
+            scale: 0.8,
+            duration: 1.2,
+            ease: 'power2.inOut',
+            yoyo: true,
+            repeat: 1
         });
     });
 
     moveRightBtn.addEventListener('click', () => {
         gsap.to(box, { 
-            x: 200, 
-            duration: 1,
-            ease: 'bounce.out'
+            x: 250, 
+            rotation: 180,
+            duration: 1.5,
+            ease: 'elastic.out(1, 0.3)'
         });
     });
 
     rotateBtn.addEventListener('click', () => {
         gsap.to(box, { 
-            rotation: 360,
-            duration: 1,
-            ease: 'elastic.out(1, 0.5)'
+            rotation: "+=720",
+            scale: 1.3,
+            duration: 2,
+            ease: 'back.inOut(1.7)',
+            transformOrigin: "center center"
         });
     });
 
@@ -79,7 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
             y: 0, 
             rotation: 0, 
             opacity: 1,
-            duration: 0.5
+            scale: 1,
+            duration: 1,
+            ease: 'elastic.out(1, 0.5)'
         });
     });
 
@@ -92,34 +193,59 @@ document.addEventListener('DOMContentLoaded', () => {
     
     timeline
         .to(circles[0], { 
-            y: -50, 
+            y: -80, 
             backgroundColor: '#ff6b6b',
-            duration: 0.5
+            scale: 1.2,
+            rotation: 180,
+            duration: 0.8,
+            ease: 'back.out(1.7)'
         })
         .to(circles[1], { 
-            y: -50, 
+            y: -80, 
             backgroundColor: '#4ecdc4',
-            duration: 0.5
-        }, "<0.3") // Start 0.3 seconds after the previous animation starts
+            scale: 1.2,
+            rotation: 180,
+            duration: 0.8,
+            ease: 'back.out(1.7)'
+        }, "<0.2") // Start 0.2 seconds after the previous animation starts
         .to(circles[2], { 
-            y: -50, 
+            y: -80, 
             backgroundColor: '#45b7d1',
-            duration: 0.5
-        }, "<0.3")
+            scale: 1.2,
+            rotation: 180,
+            duration: 0.8,
+            ease: 'back.out(1.7)'
+        }, "<0.2")
         .to(circles[0], { 
-            x: 100, 
-            rotation: 360,
-            duration: 1
+            x: 150, 
+            rotation: 540,
+            backgroundColor: '#a8e6cf',
+            duration: 1.5,
+            ease: 'elastic.out(1, 0.3)'
         })
         .to(circles[1], { 
-            scale: 1.5, 
-            duration: 0.5
-        }, "-=.5") // Overlap with previous animation by 0.5 seconds
+            scale: 2, 
+            rotation: 720,
+            backgroundColor: '#ffd93d',
+            duration: 1.2,
+            ease: 'elastic.out(1, 0.5)'
+        }, "-=1.2") // Overlap with previous animation
         .to(circles[2], { 
-            x: -100, 
-            rotation: -360,
-            duration: 1
-        }, "<"); // Start at the same time as the previous animation
+            x: -150, 
+            rotation: -540,
+            backgroundColor: '#ff8b94',
+            duration: 1.5,
+            ease: 'elastic.out(1, 0.3)'
+        }, "-=1.5") // Start at the same time as the first circle movement
+        .to(circles, {
+            y: 0,
+            x: 0,
+            scale: 1,
+            rotation: 0,
+            duration: 1.5,
+            ease: 'bounce.out',
+            stagger: 0.2
+        }, "+=0.5");
 
     playTimelineBtn.addEventListener('click', () => {
         timeline.play();
