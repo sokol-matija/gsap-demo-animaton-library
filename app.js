@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             console.log(`Button clicked: ${button.dataset.section}`);
             const targetSection = button.dataset.section;
+
+            
             
             // Update active button
             navButtons.forEach(btn => btn.classList.remove('active'));
@@ -281,39 +283,24 @@ document.addEventListener('DOMContentLoaded', () => {
         createDraggables();
     });
     
-    // Scroll Animations - Simplified Version
-    console.log('Setting up scroll animations');
+    // Scroll Animations - Using ScrollTrigger
+    console.log('Setting up scroll animations with ScrollTrigger');
     const scrollBoxes = document.querySelectorAll('.scroll-box');
     console.log('Found scroll boxes:', scrollBoxes.length);
-    
-    // Set initial state for all boxes
-    gsap.set(scrollBoxes, { opacity: 0, y: 50 });
-    
-    // Simple scroll animation without ScrollTrigger
-    // This will animate boxes when the scroll section becomes active
-    const animateScrollBoxes = () => {
-        console.log('Animating scroll boxes');
-        scrollBoxes.forEach((box, index) => {
-            gsap.to(box, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                delay: index * 0.3,
-                ease: 'back.out(1.7)'
-            });
-        });
-    };
-    
-    // Add click handler to the scroll navigation button
-    const scrollNavBtn = document.querySelector('[data-section="scroll"]');
-    if (scrollNavBtn) {
-        console.log('Found scroll nav button');
-        scrollNavBtn.addEventListener('click', () => {
-            console.log('Scroll section activated');
-            // Wait a small amount of time for the section to become visible
-            setTimeout(animateScrollBoxes, 100);
-        });
-    }
+
+    gsap.set(scrollBoxes, { opacity: 0, y: 100 }); // Initial state for animation
+
+    ScrollTrigger.batch(scrollBoxes, {
+        interval: 0.1, // time between when each object is revealed
+        batchMax: 3,   // maximum number of objects to animate at a time
+        onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true, ease: 'power2.out' }),
+        onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+        onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true, ease: 'power2.out' }),
+        onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+        // you can also define things like start/end/once here
+        start: "top 80%",
+        end: "bottom 20%"
+    });
 
     // Initialize the first section as active
     document.querySelector('.nav-btn').click();

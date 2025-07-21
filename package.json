@@ -1,0 +1,34 @@
+{
+  "name": "gsap-demo-animation-library",
+  "version": "1.0.0",
+  "description": "GSAP Animation Playground with ScrollTrigger Examples",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --open=/index.html",
+    "dev": "live-server --port=3000 --open=/index.html --watch=.",
+    "serve": "python3 -m http.server 3000",
+    "serve-py": "python -m http.server 3000"
+  },
+  "keywords": [
+    "gsap",
+    "animation",
+    "scrolltrigger",
+    "javascript",
+    "css",
+    "demo"
+  ],
+  "author": "GSAP Demo",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "local"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
